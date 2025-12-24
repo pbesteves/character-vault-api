@@ -270,8 +270,8 @@ export type SessionCreateInput = {
   expiresAt: Date | string
   ipAddress?: string | null
   userAgent?: string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutSessionsInput
 }
 
@@ -282,8 +282,8 @@ export type SessionUncheckedCreateInput = {
   expiresAt: Date | string
   ipAddress?: string | null
   userAgent?: string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type SessionUpdateInput = {
@@ -315,8 +315,8 @@ export type SessionCreateManyInput = {
   expiresAt: Date | string
   ipAddress?: string | null
   userAgent?: string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type SessionUpdateManyMutationInput = {
@@ -431,8 +431,8 @@ export type SessionCreateWithoutUserInput = {
   expiresAt: Date | string
   ipAddress?: string | null
   userAgent?: string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type SessionUncheckedCreateWithoutUserInput = {
@@ -441,8 +441,8 @@ export type SessionUncheckedCreateWithoutUserInput = {
   expiresAt: Date | string
   ipAddress?: string | null
   userAgent?: string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type SessionCreateOrConnectWithoutUserInput = {
@@ -491,8 +491,8 @@ export type SessionCreateManyUserInput = {
   expiresAt: Date | string
   ipAddress?: string | null
   userAgent?: string | null
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type SessionUpdateWithoutUserInput = {

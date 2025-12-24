@@ -242,8 +242,8 @@ export type VerificationCreateInput = {
   identifier: string
   value: string
   expiresAt: Date | string
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type VerificationUncheckedCreateInput = {
@@ -251,8 +251,8 @@ export type VerificationUncheckedCreateInput = {
   identifier: string
   value: string
   expiresAt: Date | string
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type VerificationUpdateInput = {
@@ -278,8 +278,8 @@ export type VerificationCreateManyInput = {
   identifier: string
   value: string
   expiresAt: Date | string
-  createdAt: Date | string
-  updatedAt: Date | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type VerificationUpdateManyMutationInput = {

@@ -57,3 +57,8 @@ export type Account = Prisma.AccountModel
  * 
  */
 export type Verification = Prisma.VerificationModel
+/**
+ * Model Character
+ * 
+ */
+export type Character = Prisma.CharacterModel
