@@ -7,6 +7,10 @@ import {
 import { CharactersService } from 'src/application/characters/characters.service';
 import { Character } from 'src/domain/character/character';
 import { ExceptionDetailsResponse } from 'src/exception-filter/utils';
+import {
+  GetCurrentUser,
+  type CurrentUser,
+} from 'src/infrastructure/decorators/get-current-user.decorator';
 
 @Controller('characters')
 export class CharactersController {
@@ -21,7 +25,10 @@ export class CharactersController {
     type: ExceptionDetailsResponse,
     description: 'Character not found',
   })
-  async getCharacterById(@Param('id') characterId: string): Promise<Character> {
+  async getCharacterById(
+    @Param('id') characterId: string,
+    @GetCurrentUser() currentUser: CurrentUser,
+  ): Promise<Character> {
     const character =
       await this.charactersService.getCharacterById(characterId);
 

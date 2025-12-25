@@ -9,6 +9,8 @@ async function bootstrap() {
     .setTitle('Character Vault')
     .setDescription('Character Vault API')
     .setVersion('1.0')
+    .addBearerAuth()
+    .addSecurityRequirements('bearer')
     .addTag('ttrpg')
     .build();
 
