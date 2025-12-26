@@ -1,5 +1,7 @@
 import { Character } from 'src/domain/character/character';
 import { System } from 'src/domain/system/system';
+import { SupportedSystems } from 'src/domain/system/types';
+import { DomainJson } from 'src/domain/types/domain-json';
 import {
   InputJsonValue,
   JsonValue,
@@ -13,22 +15,20 @@ import {
 interface CharacterPersistance {
   id: string;
   accountId: string;
-  systemName: string;
-  systemVersion: number;
+  systemName: SupportedSystems;
   sheet: JsonValue;
   image: string | null;
 }
 
 export class CharacterMapper {
   static toDomain(raw: PrismaCharacter): Character {
-    return Character.create({
+    return Character.restore({
       id: raw.id,
       accountId: raw.accountId,
       system: System.create({
-        name: raw.systemName,
-        version: raw.systemVersion,
+        name: raw.systemName as SupportedSystems,
       }),
-      sheet: raw.sheet,
+      sheet: raw.sheet as DomainJson,
       image: raw.image,
     });
   }
@@ -38,7 +38,6 @@ export class CharacterMapper {
       id: character.id,
       accountId: character.accountId,
       systemName: character.system.name,
-      systemVersion: character.system.version,
       sheet: character.sheet,
       image: character.image,
     } satisfies CharacterPersistance;
@@ -49,7 +48,6 @@ export class CharacterMapper {
       id: character.id,
       account: { connect: { id: character.accountId } },
       systemName: character.system.name,
-      systemVersion: character.system.version,
       sheet: character.sheet as InputJsonValue,
       image: character.image,
     };
@@ -58,7 +56,6 @@ export class CharacterMapper {
   static toUpdateInput(character: Character): CharacterUpdateInput {
     return {
       systemName: character.system.name,
-      systemVersion: character.system.version,
       sheet: character.sheet as InputJsonValue,
       image: character.image ?? null,
     };
