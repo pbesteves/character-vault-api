@@ -20,25 +20,14 @@ export type CharacterModel = runtime.Types.Result.DefaultSelection<Prisma.$Chara
 
 export type AggregateCharacter = {
   _count: CharacterCountAggregateOutputType | null
-  _avg: CharacterAvgAggregateOutputType | null
-  _sum: CharacterSumAggregateOutputType | null
   _min: CharacterMinAggregateOutputType | null
   _max: CharacterMaxAggregateOutputType | null
-}
-
-export type CharacterAvgAggregateOutputType = {
-  systemVersion: number | null
-}
-
-export type CharacterSumAggregateOutputType = {
-  systemVersion: number | null
 }
 
 export type CharacterMinAggregateOutputType = {
   id: string | null
   accountId: string | null
   systemName: string | null
-  systemVersion: number | null
   image: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -48,7 +37,6 @@ export type CharacterMaxAggregateOutputType = {
   id: string | null
   accountId: string | null
   systemName: string | null
-  systemVersion: number | null
   image: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -58,7 +46,6 @@ export type CharacterCountAggregateOutputType = {
   id: number
   accountId: number
   systemName: number
-  systemVersion: number
   sheet: number
   image: number
   createdAt: number
@@ -67,19 +54,10 @@ export type CharacterCountAggregateOutputType = {
 }
 
 
-export type CharacterAvgAggregateInputType = {
-  systemVersion?: true
-}
-
-export type CharacterSumAggregateInputType = {
-  systemVersion?: true
-}
-
 export type CharacterMinAggregateInputType = {
   id?: true
   accountId?: true
   systemName?: true
-  systemVersion?: true
   image?: true
   createdAt?: true
   updatedAt?: true
@@ -89,7 +67,6 @@ export type CharacterMaxAggregateInputType = {
   id?: true
   accountId?: true
   systemName?: true
-  systemVersion?: true
   image?: true
   createdAt?: true
   updatedAt?: true
@@ -99,7 +76,6 @@ export type CharacterCountAggregateInputType = {
   id?: true
   accountId?: true
   systemName?: true
-  systemVersion?: true
   sheet?: true
   image?: true
   createdAt?: true
@@ -145,18 +121,6 @@ export type CharacterAggregateArgs<ExtArgs extends runtime.Types.Extensions.Inte
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: CharacterAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: CharacterSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: CharacterMinAggregateInputType
@@ -187,8 +151,6 @@ export type CharacterGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   _count?: CharacterCountAggregateInputType | true
-  _avg?: CharacterAvgAggregateInputType
-  _sum?: CharacterSumAggregateInputType
   _min?: CharacterMinAggregateInputType
   _max?: CharacterMaxAggregateInputType
 }
@@ -197,14 +159,11 @@ export type CharacterGroupByOutputType = {
   id: string
   accountId: string
   systemName: string
-  systemVersion: number
   sheet: runtime.JsonValue
   image: string | null
   createdAt: Date
   updatedAt: Date
   _count: CharacterCountAggregateOutputType | null
-  _avg: CharacterAvgAggregateOutputType | null
-  _sum: CharacterSumAggregateOutputType | null
   _min: CharacterMinAggregateOutputType | null
   _max: CharacterMaxAggregateOutputType | null
 }
@@ -231,7 +190,6 @@ export type CharacterWhereInput = {
   id?: Prisma.StringFilter<"Character"> | string
   accountId?: Prisma.StringFilter<"Character"> | string
   systemName?: Prisma.StringFilter<"Character"> | string
-  systemVersion?: Prisma.IntFilter<"Character"> | number
   sheet?: Prisma.JsonFilter<"Character">
   image?: Prisma.StringNullableFilter<"Character"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Character"> | Date | string
@@ -243,7 +201,6 @@ export type CharacterOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   systemName?: Prisma.SortOrder
-  systemVersion?: Prisma.SortOrder
   sheet?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -258,7 +215,6 @@ export type CharacterWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.CharacterWhereInput | Prisma.CharacterWhereInput[]
   accountId?: Prisma.StringFilter<"Character"> | string
   systemName?: Prisma.StringFilter<"Character"> | string
-  systemVersion?: Prisma.IntFilter<"Character"> | number
   sheet?: Prisma.JsonFilter<"Character">
   image?: Prisma.StringNullableFilter<"Character"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Character"> | Date | string
@@ -270,16 +226,13 @@ export type CharacterOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   systemName?: Prisma.SortOrder
-  systemVersion?: Prisma.SortOrder
   sheet?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.CharacterCountOrderByAggregateInput
-  _avg?: Prisma.CharacterAvgOrderByAggregateInput
   _max?: Prisma.CharacterMaxOrderByAggregateInput
   _min?: Prisma.CharacterMinOrderByAggregateInput
-  _sum?: Prisma.CharacterSumOrderByAggregateInput
 }
 
 export type CharacterScalarWhereWithAggregatesInput = {
@@ -289,7 +242,6 @@ export type CharacterScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Character"> | string
   accountId?: Prisma.StringWithAggregatesFilter<"Character"> | string
   systemName?: Prisma.StringWithAggregatesFilter<"Character"> | string
-  systemVersion?: Prisma.IntWithAggregatesFilter<"Character"> | number
   sheet?: Prisma.JsonWithAggregatesFilter<"Character">
   image?: Prisma.StringNullableWithAggregatesFilter<"Character"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Character"> | Date | string
@@ -297,9 +249,8 @@ export type CharacterScalarWhereWithAggregatesInput = {
 }
 
 export type CharacterCreateInput = {
-  id?: string
+  id: string
   systemName: string
-  systemVersion: number
   sheet: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: string | null
   createdAt?: Date | string
@@ -308,10 +259,9 @@ export type CharacterCreateInput = {
 }
 
 export type CharacterUncheckedCreateInput = {
-  id?: string
+  id: string
   accountId: string
   systemName: string
-  systemVersion: number
   sheet: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: string | null
   createdAt?: Date | string
@@ -321,7 +271,6 @@ export type CharacterUncheckedCreateInput = {
 export type CharacterUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   systemName?: Prisma.StringFieldUpdateOperationsInput | string
-  systemVersion?: Prisma.IntFieldUpdateOperationsInput | number
   sheet?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -333,7 +282,6 @@ export type CharacterUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   systemName?: Prisma.StringFieldUpdateOperationsInput | string
-  systemVersion?: Prisma.IntFieldUpdateOperationsInput | number
   sheet?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -341,10 +289,9 @@ export type CharacterUncheckedUpdateInput = {
 }
 
 export type CharacterCreateManyInput = {
-  id?: string
+  id: string
   accountId: string
   systemName: string
-  systemVersion: number
   sheet: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: string | null
   createdAt?: Date | string
@@ -354,7 +301,6 @@ export type CharacterCreateManyInput = {
 export type CharacterUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   systemName?: Prisma.StringFieldUpdateOperationsInput | string
-  systemVersion?: Prisma.IntFieldUpdateOperationsInput | number
   sheet?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -365,7 +311,6 @@ export type CharacterUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   systemName?: Prisma.StringFieldUpdateOperationsInput | string
-  systemVersion?: Prisma.IntFieldUpdateOperationsInput | number
   sheet?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -386,22 +331,16 @@ export type CharacterCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   systemName?: Prisma.SortOrder
-  systemVersion?: Prisma.SortOrder
   sheet?: Prisma.SortOrder
   image?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
-export type CharacterAvgOrderByAggregateInput = {
-  systemVersion?: Prisma.SortOrder
-}
-
 export type CharacterMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   systemName?: Prisma.SortOrder
-  systemVersion?: Prisma.SortOrder
   image?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -411,14 +350,9 @@ export type CharacterMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   systemName?: Prisma.SortOrder
-  systemVersion?: Prisma.SortOrder
   image?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-}
-
-export type CharacterSumOrderByAggregateInput = {
-  systemVersion?: Prisma.SortOrder
 }
 
 export type CharacterCreateNestedManyWithoutAccountInput = {
@@ -463,18 +397,9 @@ export type CharacterUncheckedUpdateManyWithoutAccountNestedInput = {
   deleteMany?: Prisma.CharacterScalarWhereInput | Prisma.CharacterScalarWhereInput[]
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type CharacterCreateWithoutAccountInput = {
-  id?: string
+  id: string
   systemName: string
-  systemVersion: number
   sheet: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: string | null
   createdAt?: Date | string
@@ -482,9 +407,8 @@ export type CharacterCreateWithoutAccountInput = {
 }
 
 export type CharacterUncheckedCreateWithoutAccountInput = {
-  id?: string
+  id: string
   systemName: string
-  systemVersion: number
   sheet: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: string | null
   createdAt?: Date | string
@@ -524,7 +448,6 @@ export type CharacterScalarWhereInput = {
   id?: Prisma.StringFilter<"Character"> | string
   accountId?: Prisma.StringFilter<"Character"> | string
   systemName?: Prisma.StringFilter<"Character"> | string
-  systemVersion?: Prisma.IntFilter<"Character"> | number
   sheet?: Prisma.JsonFilter<"Character">
   image?: Prisma.StringNullableFilter<"Character"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Character"> | Date | string
@@ -532,9 +455,8 @@ export type CharacterScalarWhereInput = {
 }
 
 export type CharacterCreateManyAccountInput = {
-  id?: string
+  id: string
   systemName: string
-  systemVersion: number
   sheet: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: string | null
   createdAt?: Date | string
@@ -544,7 +466,6 @@ export type CharacterCreateManyAccountInput = {
 export type CharacterUpdateWithoutAccountInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   systemName?: Prisma.StringFieldUpdateOperationsInput | string
-  systemVersion?: Prisma.IntFieldUpdateOperationsInput | number
   sheet?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -554,7 +475,6 @@ export type CharacterUpdateWithoutAccountInput = {
 export type CharacterUncheckedUpdateWithoutAccountInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   systemName?: Prisma.StringFieldUpdateOperationsInput | string
-  systemVersion?: Prisma.IntFieldUpdateOperationsInput | number
   sheet?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -564,7 +484,6 @@ export type CharacterUncheckedUpdateWithoutAccountInput = {
 export type CharacterUncheckedUpdateManyWithoutAccountInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   systemName?: Prisma.StringFieldUpdateOperationsInput | string
-  systemVersion?: Prisma.IntFieldUpdateOperationsInput | number
   sheet?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -577,7 +496,6 @@ export type CharacterSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   id?: boolean
   accountId?: boolean
   systemName?: boolean
-  systemVersion?: boolean
   sheet?: boolean
   image?: boolean
   createdAt?: boolean
@@ -589,7 +507,6 @@ export type CharacterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   id?: boolean
   accountId?: boolean
   systemName?: boolean
-  systemVersion?: boolean
   sheet?: boolean
   image?: boolean
   createdAt?: boolean
@@ -601,7 +518,6 @@ export type CharacterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   id?: boolean
   accountId?: boolean
   systemName?: boolean
-  systemVersion?: boolean
   sheet?: boolean
   image?: boolean
   createdAt?: boolean
@@ -613,14 +529,13 @@ export type CharacterSelectScalar = {
   id?: boolean
   accountId?: boolean
   systemName?: boolean
-  systemVersion?: boolean
   sheet?: boolean
   image?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type CharacterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "accountId" | "systemName" | "systemVersion" | "sheet" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["character"]>
+export type CharacterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "accountId" | "systemName" | "sheet" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["character"]>
 export type CharacterInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }
@@ -640,7 +555,6 @@ export type $CharacterPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     id: string
     accountId: string
     systemName: string
-    systemVersion: number
     sheet: runtime.JsonValue
     image: string | null
     createdAt: Date
@@ -1072,7 +986,6 @@ export interface CharacterFieldRefs {
   readonly id: Prisma.FieldRef<"Character", 'String'>
   readonly accountId: Prisma.FieldRef<"Character", 'String'>
   readonly systemName: Prisma.FieldRef<"Character", 'String'>
-  readonly systemVersion: Prisma.FieldRef<"Character", 'Int'>
   readonly sheet: Prisma.FieldRef<"Character", 'Json'>
   readonly image: Prisma.FieldRef<"Character", 'String'>
   readonly createdAt: Prisma.FieldRef<"Character", 'DateTime'>

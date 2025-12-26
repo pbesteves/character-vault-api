@@ -136,7 +136,6 @@ export const CharacterScalarFieldEnum = {
   id: 'id',
   accountId: 'accountId',
   systemName: 'systemName',
-  systemVersion: 'systemVersion',
   sheet: 'sheet',
   image: 'image',
   createdAt: 'createdAt',
